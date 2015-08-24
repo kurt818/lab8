@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 25, 2015 7:22:52 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="neu.edu.lab08.model.UsedVaccine" table="Usedvaccine">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="vaccineid" type="int">
+            <column name="vaccineid" />
+            <!-- <generator class="foreign" >
+            <param name="property">vaccine</param>
+            </generator> -->
+        </property>
+        <property name="vaccinename" type="java.lang.String">
+            <column name="vaccinename" />
+        </property>
+        <property name="patientid" type="int">
+            <column name="patientid" />
+        </property>
+        <property name="vaccineprice" type="int">
+            <column name="vaccineprice" />
+        </property>
+        <property name="date" type="java.lang.String">
+            <column name="date" />
+        </property>
+        <property name="payamount" type="int">
+            <column name="payamount" />
+        </property>
+        <property name="hospital" type="java.lang.String">
+            <column name="hospital" />
+        </property>
+        
+        <one-to-one name="vaccine" class="neu.edu.lab08.model.Vaccine" constrained="false"></one-to-one>
+        <one-to-one name="patient" class="neu.edu.lab08.model.Patient" constrained="false"></one-to-one>
+    </class>
+</hibernate-mapping>

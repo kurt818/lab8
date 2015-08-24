@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Vaccine</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+This is the vm page
+<script> 
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+</script>
+
+<style> 
+#panel, #flip {
+    padding: 5px;
+    text-align: center;
+    background-color: lightblue;
+    border: solid 1px #c3c3c3;
+}
+
+#panel {
+    padding: 5px;
+    display: none;
+}
+</style>
+</head>
+<body>
+ 
+<div id="flip">Today's date</div>
+<div id="panel">$date</div>
+
+
+	<form action="assignvaccine" method="post">
+		<table border="1">
+			<tr>
+				<th>Patient Id:</th>
+				<td align="center">$patientid<input type="hidden" name="patientid" value="$patientid" /></td>
+				
+			</tr>
+			<tr>
+				<th>Hospital:</th>
+				<td align="center">$username</td>
+			</tr>
+		</table>
+		<table border="1">
+                    <tr>
+                        <th>Inventory id</th>
+                        <th>Vaccine id</th>
+                        <th>Vaccine name</th>
+                        <th>Expire date</th>
+                        <th>Quantity</th>
+                        <th>User</th>
+                        <th>Assign Vaccine</th>
+                    </tr>
+                    #foreach($inventory in $inventoryList)
+                    <tr>
+                        <td align="center">$inventory.id</td>
+                        <td align="center">$inventory.vaccineid</td>
+                        <td align="center">$inventory.vaccinename</td>
+                        <td align="center">$inventory.expiredate</td>
+                        <td align="center">$inventory.quantity</td>
+                        <td align="center">$inventory.user</td>
+                        <td align="center"><input type="checkbox" name="assignvaccine" value="$inventory.id" /></td>
+                    </tr>
+                    #end
+                </table>
+		<input type="submit" name="submit" value="Assign Vaccine" />
+	</form>
+</body>
+</html>

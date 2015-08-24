@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 25, 2015 7:22:52 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="neu.edu.lab08.model.Vaccine" table="Vaccine">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="price" type="int">
+            <column name="price" />
+        </property>
+        <property name="availability" type="int">
+            <column name="availability" />
+        </property>
+        <property name="manufacture" type="java.lang.String">
+            <column name="manufacture" />
+        </property>
+        <property name="producedate" type="java.lang.String">
+            <column name="producedate" />
+        </property>
+        <property name="expiredate" type="java.lang.String">
+            <column name="expiredate" />
+        </property>
+        <property name="status" type="int">
+            <column name="status" />
+        </property>
+        
+        <one-to-one name="inventory" class="neu.edu.lab08.model.Inventory" cascade="none"></one-to-one>
+        <one-to-one name="request" class="neu.edu.lab08.model.Request" cascade="none"></one-to-one>
+        <one-to-one name="usedvaccine" class="neu.edu.lab08.model.UsedVaccine" cascade="none"></one-to-one>
+    </class>
+</hibernate-mapping>
